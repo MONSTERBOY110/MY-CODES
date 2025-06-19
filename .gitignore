@@ -1,0 +1,35 @@
+# 💻 C Programming
+*.exe
+*.o
+*.out
+*.obj
+*.gch
+
+# 🧪 Java Compiled Classes
+*.class
+
+# 🐍 Python Cache & Envs
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+ENV/
+
+# 🔧 Editor/IDE Files
+.vscode/
+.idea/
+
+# 🧱 Build Directories
+build/
+dist/
+
+# 🗑️ System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 🚫 Git Ignore Backup
+*.log
+*.tmp
