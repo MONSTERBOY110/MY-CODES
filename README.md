@@ -12,7 +12,7 @@ A collection of code files I’ve written in different programming languages dur
 
 ## 🧭 Language ⎯ Quick Access
 
-- ![C](https://img.shields.io/badge/-C-informational?style=flat&logo=c&logoColor=white) [C](./C Programme) – Core C programs: loops, arrays, pointers, recursion, patterns...
+- ![C](https://img.shields.io/badge/-C-informational?style=flat&logo=c&logoColor=white) [C]([C Programme](./C%20Programme) – Core C programs: loops, arrays, pointers, recursion, patterns...
 - ![Java](https://img.shields.io/badge/-Java-orange?style=flat&logo=java&logoColor=white) [Java](./Java) – OOP, file I/O, multithreading, data structures.
 - ![Python](https://img.shields.io/badge/-Python-blue?style=flat&logo=python&logoColor=white) [Python](./Python) – Automation scripts, problem solving, mini projects.
 - ![DSA](https://img.shields.io/badge/-DSA-critical?style=flat&logo=algorithmia&logoColor=white) [DSA](./DSA) – Language-agnostic Algorithms & Data Structures implementations.
