@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script>
+       function check()
+       {
+          let x,y,z;
+          x=Number(document.getElementById("t1").value)
+          y=Number(document.getElementById("t2").value)
+          if(x>y)
+          {
+             alert("1st No."+x+" is Greater")
+             document.getElementById('t3').value="1st No."+x+" is Greater"
+             document.getElementById('p1').innerHTML="1st No."+x+" is Greater"
+             //document.write("1st No."+x+" is Greater")
+          }
+          else if(y>x)
+          {
+             alert("2nd No."+y+" is Greater")
+             document.getElementById('t3').value="2nd No."+y+" is Greater"
+             document.getElementById('p1').innerHTML="2nd No."+y+" is Greater"
+             //document.write("1st No."+x+" is Greater")
+          }
+           else
+          {
+             alert("Both are Equal")
+             document.getElementById('t3').value="Both are Equal"
+             document.getElementById('p1').innerHTML="Both are Equal"
+             //document.write("1st No."+x+" is Greater")
+          }
+       }
+    </script>
+  </head>
+  <body>
+     Enter the 1st No. <input type="text" name="text1" id="t1"><br><br>
+    Enter the 2nd No. <input type="text" name="text2" id="t2"><br><br>
+    Result <input type="text" name="text3" id="t3"><br><br>
+   <button onclick="check()">Check</button>
+   <p id="p1"></p>
+  </body>
+</html>

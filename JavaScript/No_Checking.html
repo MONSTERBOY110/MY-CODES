@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <script>
+           function fact()
+           {
+             var n=Number(document.getElementById('t1').value);
+             var i;
+             var f=1;
+             for(i=1;i<=n;i++)
+             {
+                f=f*i;
+             }
+             document.getElementById('t2').value="Factorial = "+f;
+           }
+           function arm()
+           {
+             var n=Number(document.getElementById('t1').value);
+             var x;
+             var rem,s=0,c=0;
+             for(x=n;n>0;n=Math.floor(n/10))
+             {
+                c++;
+             }
+             for(n=x;n>0;n=Math.floor(n/10))
+             {
+                rem=n%10;
+                s=s+Math.pow(rem,c);
+             }
+             if(x==s)
+               document.getElementById('t2').value=x+" is Armstrong no.";
+             else
+               document.getElementById('t2').value=x+" is NOT Armstrong no.";
+           }
+           function prime()
+           {
+            var n=Number(document.getElementById('t1').value);
+            var i=1,c=0;
+            while(i<=n)
+            {
+                if(n%i==0)
+                  c++;
+                i++;
+            }
+            if(c==2)
+              document.getElementById('t2').value=n+" is Prime No.";
+            else
+              document.getElementById('t2').value=n+" is NOT Prime No.";
+           }
+           function reverse()
+           {
+            var n=Number(document.getElementById('t1').value);
+            var x,rem,rev=0;
+            for(x=n;n>0;n=Math.floor(n/10))
+            {
+                rem=n%10;
+                rev=rev*10+rem;
+            }
+            document.getElementById('t2').value="Reverse = "+rev;
+           }
+        </script>
+    </head>
+    <body>
+        Enter the 1st No.  <input type="text" id="t1"><br><br>
+        Result  <input type="text" id="t2"><br><br>
+        <button onclick="fact()">Factorial</button>
+        <button onclick="arm()">Armstrong</button>
+        <button onclick="prime()">Prime</button>
+        <button onclick="reverse()">reverse</button>
+    </body>
+</html>
