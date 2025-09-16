@@ -1,0 +1,10 @@
+#div1{
+        font-family:arial;
+        font-size:1.5em;
+        padding:25px;
+        background-color: aqua;
+        color: black;
+     }
+#div1 p{
+    background-color: inherit;
+}
