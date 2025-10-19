@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess My Number</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (max-width:600px)" href="style2.css">
+  </head>
+  <body>
+    <header class="head">
+      <h1 class="heading">Guess My Number</h1>
+      <button type="reset" class="btn">Again!</button>
+      <p class="info">(Between 1 and 20)</p>
+      <p class="mid">?</p>
+    </header>
+    <main>
+    <section class="left">
+      <input type="number" class="number" />
+      <button class="btnCheck">Check!</button>
+    </section>
+    <section class="right">
+      <p class="message">Start Guessing....</p>
+      <p class="score">💯 Your score : <span id="score">20</span></p>
+      <p class="highscore">🥇 Highscore : <span id="highscore">0</span></p>
+    </section >
+  </main>
+  <audio  play>
+    <source src="bgm.mp3" type="audio/mpeg">
+    <source src="bgm.ogg" type="audio/ogg">
+  </audio>
+  <script src="guess.js"></script>
+  </body>
+</html>
