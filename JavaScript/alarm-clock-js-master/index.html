@@ -1,233 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elegant Alarm Clock</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Alarm Clock</title>
 
   <style>
-    :root {
-      --bg1: #0f172a;
-      --bg2: #1e293b;
-      --card: rgba(255, 255, 255, 0.07);
-      --accent: #7c3aed;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --border: rgba(255, 255, 255, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-    }
-
+    /* Background styling */
     body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
       height: 100vh;
+      margin: 0;
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      color: var(--text);
-      overflow: hidden;
+      align-items: center;
     }
 
+    /* Main container */
     .container {
-      width: 380px;
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 32px 28px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 40px 60px;
       text-align: center;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
     }
 
     .container:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+      transform: scale(1.03);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
     }
 
-    h1 {
-      font-size: 1.5rem;
-      letter-spacing: 0.5px;
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-
-    .clock {
-      font-size: 2.6rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-    }
-
-    .date {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 20px;
-    }
-
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin: 18px 0;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--muted);
-      display: block;
-      text-align: left;
-      margin-bottom: 6px;
-    }
-
-    input[type="time"] {
-      width: 100%;
-      padding: 10px 12px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      font-size: 1rem;
-      font-weight: 600;
-      outline: none;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-
-    input[type="time"]:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
-    }
-
-    .btn {
-      margin-top: 16px;
-      width: 48%;
-      background: linear-gradient(135deg, #7c3aed, #06b6d4);
-      border: none;
-      border-radius: 12px;
-      color: white;
-      padding: 10px 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn.secondary {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    .btn-group {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-
-    .status {
-      margin-top: 20px;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    /* Ring overlay */
-    .ring {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.85);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-    }
-
-    .ring.active {
-      display: flex;
-    }
-
-    .ring-box {
-      background: var(--card);
-      padding: 30px 28px;
-      border-radius: 16px;
-      text-align: center;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    .ring-box h2 {
-      margin-bottom: 8px;
-      font-size: 1.4rem;
-      color: var(--accent);
-    }
-
-    .ring-box p {
-      margin-bottom: 16px;
-      color: var(--text);
+    h3 {
+      margin: 10px 0;
       font-weight: 500;
+      letter-spacing: 1px;
     }
 
-    .ring-box .btn {
-      width: 45%;
-      margin: 0 4px;
+    #time {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #ffeb3b;
+      text-shadow: 0 0 15px #ffeb3b90;
     }
 
-    @media (max-width: 480px) {
+    #date {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    li p {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+
+    select {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: none;
+      outline: none;
+      padding: 10px 15px;
+      margin: 0 5px;
+      border-radius: 8px;
+      font-size: 1rem;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    select:hover {
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+    }
+
+    button {
+      margin: 10px 8px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #fff;
+    }
+
+    #start {
+      background: linear-gradient(135deg, #00c853, #b2ff59);
+    }
+
+    #cancel {
+      background: linear-gradient(135deg, #ff1744, #ff5252);
+    }
+
+    #start:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #b2ff59a0;
+    }
+
+    #cancel:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ff5252a0;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
       .container {
         width: 90%;
-        padding: 24px;
+        padding: 30px 20px;
       }
 
-      .clock {
-        font-size: 2.2rem;
+      #time {
+        font-size: 2rem;
+      }
+
+      select {
+        padding: 8px 10px;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 10px;
       }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
-    <h1>⏰ Smart Alarm Clock</h1>
-    <div class="clock" id="clock">00:00:00</div>
-    <div class="date" id="date">Loading...</div>
+    <h3 id="date">Loading date...</h3>
+    <h3 id="time">00:00:00</h3>
 
-    <div class="divider"></div>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <p>Set your alarm:</p>
+      </li>
+      <li class="list-inline-item">
+        <select id='alarm-hour'></select>
+        <select id='alarm-minute'></select>
+        <select id='alarm-second'></select>
+      </li>
+    </ul>
 
-    <label for="alarmTime">Set Alarm</label>
-    <input type="time" id="alarmTime" />
-
-    <div class="btn-group">
-      <button class="btn" id="setAlarm">Set</button>
-      <button class="btn secondary" id="clearAlarm">Clear</button>
-    </div>
-
-    <div class="status" id="status">No alarm set.</div>
+    <button id="start" type="button">Start</button>
+    <button id="cancel" type="button">Cancel</button>
   </div>
 
-  <!-- Ring Overlay -->
-  <div class="ring" id="ring">
-    <div class="ring-box">
-      <h2>Alarm Ringing!</h2>
-      <p id="alarmLabel">Wake up!</p>
-      <button class="btn" id="stopAlarm">Stop</button>
-      <button class="btn secondary" id="snoozeAlarm">Snooze 5 min</button>
-    </div>
-  </div>
-
-  <!-- External JS -->
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
