@@ -15,7 +15,7 @@ A collection of code files I’ve written in different programming languages dur
 - ![C](https://img.shields.io/badge/-C-informational?style=flat&logo=c&logoColor=white) [C Programms](./C%20Programms/)
 - ![Java](https://img.shields.io/badge/-Java-orange?style=flat&logo=java&logoColor=white) [Java](./Java)
 - ![Python](https://img.shields.io/badge/-Python-blue?style=flat&logo=python&logoColor=white) [Python](./Python)
-- ![DSA](https://img.shields.io/badge/-DSA-critical?style=flat&logo=algorithmia&logoColor=white) [DSA](./DSA)
+
 ---
 
 
