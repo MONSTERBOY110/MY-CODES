@@ -1,28 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="style.css" rel="stylesheet">
-<title>Caesar Cipher</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-<body>
-    <div class = "main">
-        <h1>CAESAR'S CIPHER</h1>
-    </div>
-    <div class = "text-center">
-        <p>Caesar's Cipher was named after Julius Caesar, who used this cipher to encrypt his private messages. The cipher takes each letter in a word and rotates it by a number. <br/><br/> For example, if the cipher was a ROT1 (rotate by 1 letter), then every a in the message would show up as a b. <br/><br/> This is a ROT13 cipher. It will encrypt your messages by rotating the letters by 13 characters. <br/><br/>
-        <form name="str">
-        <div class="change">
-            <input type="text" id="text" class="form-control"  placeholder="Enter text to encrypt here..."/>
-        </div>
-        <button id="encrypt" class="btn btn-default">Encrypt</button>
-            <h4 id="output"></h4>
-<hr>
-        </form>
-        
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caesar Cipher</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .main h1 {
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      margin-bottom: 20px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px #00e0ff; }
+      to { text-shadow: 0 0 20px #00e0ff, 0 0 40px #00e0ff; }
+    }
+
+    .cipher-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    p {
+      font-size: 14px;
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    input.form-control {
+      border-radius: 10px;
+      padding: 12px;
+      border: none;
+      outline: none;
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    input.form-control::placeholder {
+      color: #ccc;
+    }
+
+    input.form-control:focus {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 8px #00e0ff;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #output {
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 18px;
+      color: #00e0ff;
+    }
+
+    hr {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 25px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <h1>Caesar's Cipher</h1>
+  </div>
+
+  <div class="cipher-card">
+    <p>
+      Caesar's Cipher was named after <b>Julius Caesar</b>, who used it to encrypt his private messages.<br /><br />
+      The cipher shifts each letter by a fixed number. For instance, in a ROT1 cipher, each "a" becomes "b".<br /><br />
+      This is a <b>ROT13</b> cipher — it rotates letters by 13 positions to encrypt your text.
+    </p>
+
+    <form name="str">
+      <input type="text" id="text" class="form-control" placeholder="Enter text to encrypt..." />
+      <button id="encrypt" type="button" class="btn">Encrypt</button>
+      <h4 id="output"></h4>
+      <hr />
+    </form>
+  </div>
+
+  <footer>© 2025 Caesar Cipher | Made with 💙 by Monster</footer>
+
+  <script>
+    // Caesar Cipher (ROT13) Logic
+    document.getElementById('encrypt').addEventListener('click', function (e) {
+      e.preventDefault();
+      const input = document.getElementById('text').value;
+      const output = input.replace(/[a-zA-Z]/g, function (char) {
+        const base = char <= 'Z' ? 65 : 97;
+        return String.fromCharCode(((char.charCodeAt(0) - base + 13) % 26) + base);
+      });
+      document.getElementById('output').innerText = "Encrypted Text: " + output;
+    });
+  </script>
 </body>
-<script src="script.js"></script>
 </html>
