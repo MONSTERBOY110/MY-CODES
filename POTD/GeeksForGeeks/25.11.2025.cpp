@@ -12,6 +12,6 @@ class Solution {
                  if (total%2==0) continue;
                    res^=arr[i];
             }
-        return res;
+        return res
     }
 };
