@@ -35,7 +35,7 @@ Each folder contains well-commented `.c`, `.java`, or `.py` files.
 
 Hello! I'm **Monster** (aka Subhojyoti Maity), an undergraduate student pursuing **B.Tech in Computer Science and Engineering**.
 
-I created this repository as a digital archive of my learning journey — from writing my very first "Hello World" in C to building structured solutions across multiple programming languages.
+I created this repository as a digital archive of my learning journey - from writing my very first "Hello World" in C to building structured solutions across multiple programming languages.
 
 I believe in:
 - 📈 **Consistent practice** over time
