@@ -4,6 +4,8 @@
 *.out
 *.obj
 *.gch
+*.ilk
+*.pdb
 
 # 🧪 Java Compiled Classes
 *.class
