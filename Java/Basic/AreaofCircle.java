@@ -1,5 +1,3 @@
-package Basic;
-
 public class AreaofCircle {
     public static void main(String[] args) {
         int r=10;

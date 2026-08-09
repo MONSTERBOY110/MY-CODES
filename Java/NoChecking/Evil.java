@@ -1,4 +1,3 @@
-package NoChecking;
 import java.util.*;
 class Evil
 {

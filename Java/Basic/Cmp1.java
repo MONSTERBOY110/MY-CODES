@@ -1,5 +1,3 @@
-package Basic;
-
 import java.util.Scanner;
 class Cmp1 {
     public static void main(String[] as) {

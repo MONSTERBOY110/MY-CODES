@@ -35,6 +35,3 @@ desktop.ini
 # 🚫 Git Ignore Backup
 *.log
 *.tmp
-
-# Java build output (jrun)
-.bin/

@@ -1,5 +1,3 @@
-package Basic;
-
 public class Printing{
     public static void main(String[] x){
         System.out.println(69);
